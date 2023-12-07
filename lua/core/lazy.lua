@@ -7,7 +7,6 @@ return {
       opts = core.config.lazyvim,
     },
     { import = "plugins.languages" },
-    { import = "plugins.themes" },
     { import = "plugins.lsp" },
     { import = "plugins" },
     utils.general.disabled_plugins(core.config.disabled_plugins),

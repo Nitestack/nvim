@@ -5,12 +5,23 @@ return {
   ---@type CatppuccinOptions
   opts = {
     transparent_background = core.config.ui.transparent.enabled,
+    flavour = "mocha",
+    styles = {
+      loops = { "italic" },
+      booleans = { "italic" },
+      comments = { "italic" },
+      conditionals = { "italic" },
+      functions = { "italic" },
+      keywords = { "italic" },
+    },
     custom_highlights = function(C)
       local U = require("catppuccin.utils.colors")
       ---@type { [string]: CtpHighlight}
-      local highlights = {}
-
-      local darkening_percentage = 0.095
+      local highlights = {
+        MiniIndentscopeSymbol = {
+          fg = "#737aa2",
+        },
+      }
 
       if not core.config.ui.transparent.floats then
         ---@type { [string]: CtpHighlight}
@@ -23,16 +34,16 @@ return {
           NeoTreeVertSplit = { bg = C.base },
 
           DiagnosticVirtualTextError = {
-            bg = U.darken(C.red, darkening_percentage, C.base),
+            bg = U.darken(C.red, 0.095, C.base),
           },
           DiagnosticVirtualTextWarn = {
-            bg = U.darken(C.yellow, darkening_percentage, C.base),
+            bg = U.darken(C.yellow, 0.095, C.base),
           },
           DiagnosticVirtualTextInfo = {
-            bg = U.darken(C.sky, darkening_percentage, C.base),
+            bg = U.darken(C.sky, 0.095, C.base),
           },
           DiagnosticVirtualTextHint = {
-            bg = U.darken(C.teal, darkening_percentage, C.base),
+            bg = U.darken(C.teal, 0.095, C.base),
           },
 
           TelescopeBorder = {
@@ -67,6 +78,12 @@ return {
           TelescopeSelection = {
             fg = C.text,
             bg = C.surface0,
+          },
+
+          TreesitterContext = {
+            bg = C.none,
+            fg = C.text,
+            link = "",
           },
         }
         highlights = vim.tbl_deep_extend("force", highlights, float_highlights)
