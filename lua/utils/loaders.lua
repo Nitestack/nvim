@@ -17,10 +17,17 @@ function M.load_settings(config)
   config.run()
 end
 
+---@param mappings DisableMappings
+function M.load_disabled_mappings(mappings)
+  require("utils.mappings").disable_mapping(mappings)
+end
+
 ---@param mappings Mappings
+---@param unmappings DisableMappings
 ---@param mapping_opts? KeymapOpts
-function M.load_mappings(mappings, mapping_opts)
+function M.load_mappings(mappings, unmappings, mapping_opts)
   require("utils.mappings").map(mappings, mapping_opts)
+  require("utils.mappings").disable_mapping(unmappings)
 end
 
 ---@param opts LazyConfig
