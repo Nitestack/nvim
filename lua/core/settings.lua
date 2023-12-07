@@ -21,7 +21,7 @@ M.options = {
 
 M.globals = {}
 
-M.disabled_providers = { "perl", "ruby" }
+M.disabled_providers = { "perl", "ruby", "node", "python3" }
 
 function M.run()
   -- go to previous/next line with h,l,left arrow and right arrow
