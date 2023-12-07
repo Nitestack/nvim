@@ -96,9 +96,6 @@ return {
     }),
     ---@type HarpoonPartialConfig
     opts = {},
-    config = function(_, opts)
-      require("harpoon"):setup(opts)
-    end,
   },
   {
     "folke/which-key.nvim",
