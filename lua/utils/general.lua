@@ -15,4 +15,12 @@ function M.disabled_plugins(plugins)
   return spec
 end
 
+function M.is_win()
+  return vim.loop.os_uname().sysname == "Windows_NT"
+end
+
+function M.is_linux()
+  return vim.loop.os_uname().sysname == "Linux"
+end
+
 return M
