@@ -16,11 +16,13 @@ M.globals = {}
 M.disabled_providers = { "perl", "ruby", "node", "python3" }
 
 function M.run()
+  -- undercurl
   vim.cmd([[let &t_Cs = "\e[4:3m"]])
   vim.cmd([[let &t_Ce = "\e[4:0m"]])
-  -- go to previous/next line with h,l,left arrow and right arrow
-  -- when cursor reaches end/beginning of line
+  -- go to previous/next line with h,l,left arrow and right arrow when cursor reaches end/beginning of line
   vim.opt.whichwrap:append("<>[]hl")
+  -- add binaries installed by mason.nvim to path
+  vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (utils.general.is_win() and ";" or ":") .. vim.env.PATH
 
   -- Windows
   if utils.general.is_win() then
