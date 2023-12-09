@@ -1,7 +1,8 @@
 local M = {}
 
 ---@param config {options: vim.opt, globals: table, disabled_providers: string[], run: fun()}
-function M.load_settings(config)
+---@param filetypes vim.filetype.add.filetypes
+function M.load_settings(config, filetypes)
   for k, v in pairs(config.options) do
     vim.opt[k] = v
   end
@@ -15,6 +16,8 @@ function M.load_settings(config)
   end
 
   config.run()
+
+  vim.filetype.add(filetypes)
 end
 
 ---@param mappings DisableMappings
