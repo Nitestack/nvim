@@ -43,4 +43,5 @@ return {
       return { "InsertEnter" }
     end,
   },
+  { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 }
