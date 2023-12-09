@@ -40,7 +40,6 @@ M.ui = {
 
 M.disabled_plugins = {
   "folke/flash.nvim",
-  "akinsho/bufferline.nvim",
   "rcarriga/nvim-notify",
 }
 

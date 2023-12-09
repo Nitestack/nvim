@@ -2,6 +2,17 @@ local M = {}
 
 ---@type Mappings
 M.mappings = {
+  n = {
+    ["x"] = { "\"_x" },
+    ["<Tab>"] = {
+      vim.cmd.bnext,
+      "Next buffer",
+    },
+    ["<S-Tab>"] = {
+      vim.cmd.bprevious,
+      "Previous buffer",
+    },
+  },
   [{ "n", "v" }] = {
     ["<leader>d"] = {
       [["_d]],
@@ -20,10 +31,6 @@ M.mappings = {
 
 ---@type DisableMappings
 M.unmappings = {
-  [{ "n", "i", "v" }] = {
-    "<A-j>",
-    "<A-k>",
-  },
   n = {
     -- Buffers
     "<S-h>",
