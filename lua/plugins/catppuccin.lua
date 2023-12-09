@@ -86,7 +86,7 @@ return {
             link = "",
           },
         }
-        highlights = vim.tbl_deep_extend("force", highlights, float_highlights)
+        highlights = vim.tbl_deep_extend("force", highlights, float_highlights) --[[@as { [string]: CtpHighlight}]]
       end
 
       return highlights
