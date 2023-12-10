@@ -6,5 +6,6 @@ _G.core.config = require("core.config")
 
 _G.utils = {}
 _G.utils.general = require("utils.general")
+_G.utils.lsp = require("utils.lsp")
 
 require("utils.loaders").load_plugins(require("core.lazy"))
