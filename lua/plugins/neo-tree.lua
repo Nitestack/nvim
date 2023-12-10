@@ -22,8 +22,7 @@ local function neo_tree_toggle(root)
         position = "float",
         toggle = true,
         dir = root and LazyVimUtil.root() or vim.loop.cwd(),
-        reveal_file = reveal_file and (utils.general.is_win() and string.gsub(reveal_file, "/", "\\") or reveal_file)
-          or nil,
+        reveal_file = reveal_file and utils.general.resolve_path(reveal_file) or nil,
         reveal_force_cwd = true,
       })
     end,
