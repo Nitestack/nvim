@@ -67,29 +67,20 @@ function M.load_language(config)
   if config.formatter then
     table.insert(spec, {
       "stevearc/conform.nvim",
-      opts = function(_, opts)
-        if config.formatter.formatters_by_ft then
-          opts.formatters_by_ft =
-            vim.tbl_extend("force", opts.formatters_by_ft or {}, config.formatter.formatters_by_ft)
-        end
-        if config.formatter.formatters then
-          opts.formatters = vim.tbl_extend("force", opts.formatters or {}, config.formatter.formatters)
-        end
-      end,
+      opts = {
+        formatters_by_ft = config.formatter.formatters_by_ft or {},
+        formatters = config.formatter.formatters or {},
+      },
     })
   end
 
   if config.linter then
     table.insert(spec, {
       "mfussenegger/nvim-lint",
-      opts = function(_, opts)
-        if config.linter.linters_by_ft then
-          opts.linters_by_ft = vim.tbl_extend("force", opts.linters_by_ft or {}, config.linter.linters_by_ft)
-        end
-        if config.linter.linters then
-          opts.linters = vim.tbl_extend("force", opts.linters or {}, config.linter.linters)
-        end
-      end,
+      opts = {
+        linters_by_ft = config.linter.linters_by_ft or {},
+        linters = config.linter.linters or {},
+      },
     })
   end
 
