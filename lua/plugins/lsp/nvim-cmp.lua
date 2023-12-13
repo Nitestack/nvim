@@ -13,6 +13,10 @@ return {
           },
         }),
       },
+      {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        opts = {},
+      },
       "onsails/lspkind.nvim",
       -- Sources
       "hrsh7th/cmp-nvim-lua",
@@ -55,7 +59,7 @@ return {
           treesitter = "(TreeSitter)",
         },
         before = function(entry, vim_item)
-          return vim_item
+          return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
       })
 
