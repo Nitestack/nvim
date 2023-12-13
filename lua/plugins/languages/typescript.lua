@@ -1,13 +1,14 @@
 return utils.lsp.load_language({
   lsp = {
     servers = {
-      typescript = {
+      tsserver = {
         autostart = false,
         mason = false,
       },
     },
   },
   mason = {
+    "typescript-language-server",
     "eslint_d",
     "prettierd",
   },
@@ -53,6 +54,8 @@ return utils.lsp.load_language({
     },
   },
   plugins = {
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
     {
       "pmizio/typescript-tools.nvim",
       dependencies = {
