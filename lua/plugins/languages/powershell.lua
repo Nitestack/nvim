@@ -4,7 +4,6 @@ return utils.lsp.load_language({
   },
   lsp = {
     servers = {
-      ---@type lspconfig.options.powershell_es
       powershell_es = {},
     },
   },
