@@ -2,8 +2,4 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-require("utils.loaders").load_mappings(
-  require("core.mappings").mappings,
-  require("core.mappings").unmappings,
-  require("core.mappings").mapping_opts
-)
+require("utils.loaders").load_mappings(require("core.mappings"))

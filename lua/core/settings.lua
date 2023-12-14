@@ -1,6 +1,13 @@
+---@class SettingsConfig
+---@field options vim.opt
+---@field globals table
+---@field disabled_providers string[]
+---@field run fun()
+
+---@type SettingsConfig
+---@diagnostic disable-next-line: missing-fields
 local M = {}
 
----@type vim.opt
 M.options = {
   swapfile = false,
   backup = false,

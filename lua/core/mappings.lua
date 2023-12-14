@@ -1,6 +1,12 @@
+---@class MappingsConfig
+---@field mappings Mappings
+---@field unmappings DisableMappings
+---@field mapping_opts KeymapOpts
+
+---@type MappingsConfig
+---@diagnostic disable-next-line: missing-fields
 local M = {}
 
----@type Mappings
 M.mappings = {
   n = {
     ["x"] = { "\"_x" },
@@ -29,7 +35,6 @@ M.mappings = {
   },
 }
 
----@type DisableMappings
 M.unmappings = {
   n = {
     -- Buffers
@@ -62,7 +67,6 @@ M.unmappings = {
   },
 }
 
----@type KeymapOpts
 M.mapping_opts = {
   silent = true,
   noremap = true,

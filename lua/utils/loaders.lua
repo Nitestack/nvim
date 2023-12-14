@@ -1,6 +1,24 @@
 local M = {}
 
----@param config {options: vim.opt, globals: table, disabled_providers: string[], run: fun()}
+---@param opts LazyConfig
+function M.load_plugins(opts)
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable",
+      lazypath,
+    })
+  end
+  vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+
+  require("lazy").setup(opts)
+end
+
+---@param config SettingsConfig
 ---@param filetypes vim.filetype.add.filetypes
 function M.load_settings(config, filetypes)
   for k, v in pairs(config.options) do
@@ -20,37 +38,17 @@ function M.load_settings(config, filetypes)
   vim.filetype.add(filetypes)
 end
 
----@param mappings DisableMappings
-function M.load_disabled_mappings(mappings)
-  require("utils.mappings").disable_mapping(mappings)
+---@param config MappingsConfig
+function M.load_mappings(config)
+  require("utils.mappings").map(config.mappings, config.mapping_opts)
+  require("utils.mappings").disable_mapping(config.unmappings)
 end
 
----@param mappings Mappings
----@param unmappings DisableMappings
----@param mapping_opts? KeymapOpts
-function M.load_mappings(mappings, unmappings, mapping_opts)
-  require("utils.mappings").map(mappings, mapping_opts)
-  require("utils.mappings").disable_mapping(unmappings)
+---@param config CommandConfiguration
+function M.load_commands(config)
+  require("utils.cmds").auto_cmds(config.auto_cmds, config.auto_cmd_opts)
+  require("utils.cmds").user_cmds(config.user_cmds, config.user_cmd_opts)
+  require("utils.cmds").au_groups(config.au_groups, config.au_group_opts)
 end
-
----@param opts LazyConfig
-function M.load_plugins(opts)
-  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-  if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazypath,
-    })
-  end
-  vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
-  require("lazy").setup(opts)
-end
-
-function M.load_commands() end
 
 return M
