@@ -18,3 +18,16 @@ _G.utils.general = require("utils.general")
 _G.utils.lsp = require("utils.lsp")
 
 require("utils.loaders").load_plugins(require("core.lazy"))
+
+-- Show version info
+core.auto_cmds({
+  {
+    "User",
+    {
+      pattern = "VeryLazy",
+      callback = function()
+        utils.general.version()
+      end,
+    },
+  },
+})

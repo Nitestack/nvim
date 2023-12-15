@@ -15,6 +15,23 @@ function M.disabled_plugins(plugins)
   return spec
 end
 
+function M.version()
+  local v = vim.version()
+  if v and not v.prerelease then
+    vim.notify(
+      ("Running on v%d.%d.%d (not nightly)"):format(v.major, v.minor, v.patch),
+      vim.log.levels.WARN,
+      { title = "Neovim" }
+    )
+  else
+    vim.notify(
+      ("Running on v%d.%d.%d (nightly)"):format(v.major, v.minor, v.patch),
+      vim.log.levels.INFO,
+      { title = "Neovim" }
+    )
+  end
+end
+
 function M.is_win()
   return vim.loop.os_uname().sysname == "Windows_NT"
 end
