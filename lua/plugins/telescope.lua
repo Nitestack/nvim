@@ -1,18 +1,16 @@
-local LazyVimUtil = require("lazyvim.util")
-
 ---@type LazyPluginSpec
 return {
   "nvim-telescope/telescope.nvim",
   keys = core.lazy_map({
     n = {
       ["<leader>fw"] = {
-        LazyVimUtil.telescope("live_grep"),
+        require("lazyvim.util").telescope("live_grep"),
         "Grep (root dir)",
       },
       ["<leader>/"] = { false },
       ["<leader>fp"] = {
         function()
-          LazyVimUtil.telescope("find_files", {
+          require("telescope.builtin").find_files({
             cwd = require("lazy.core.config").options.root,
           })
         end,
@@ -32,7 +30,7 @@ return {
               plugin = plugin._.super
             until not plugin
           end
-          LazyVimUtil.telescope("live_grep", {
+          require("telescope.builtin").live_grep({
             default_text = "/",
             search_dirs = vim.tbl_values(files),
           })
