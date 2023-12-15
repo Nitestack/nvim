@@ -52,7 +52,7 @@ M.auto_cmds = {
   },
   -- Fix conceallevel for json & help files
   {
-    { "FileType" },
+    "FileType",
     {
       pattern = { "json", "jsonc" },
       callback = function()
