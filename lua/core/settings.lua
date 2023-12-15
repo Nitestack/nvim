@@ -11,7 +11,7 @@ local M = {}
 M.options = {
   swapfile = false,
   backup = false,
-  undodir = os.getenv("HOME") .. "/.vim/undodir",
+  undodir = vim.fn.expand("~/.vim/undodir"),
   undofile = true,
 
   pumblend = 0,
