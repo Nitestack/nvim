@@ -33,6 +33,26 @@ M.mappings = {
       "<gv",
     },
   },
+  t = {
+    ["<Esc>"] = {
+      "<C-\\><C-n>",
+      "Enter Normal Mode",
+    },
+  },
+  [{ "t", "i" }] = {
+    ["<C-h>"] = {
+      "<C-\\><C-n><C-w>h",
+    },
+    ["<C-l>"] = {
+      "<C-\\><C-n><C-w>l",
+    },
+    ["<C-k>"] = {
+      "<C-\\><C-n><C-w>k",
+    },
+    ["<C-j>"] = {
+      "<C-\\><C-n><C-w>j",
+    },
+  },
 }
 
 M.unmappings = {
@@ -40,8 +60,6 @@ M.unmappings = {
     -- Buffers
     "<S-h>",
     "<S-l>",
-    "[b",
-    "]b",
     "<leader>bb",
     "<leader>`",
     -- LazyVim terminal
@@ -58,10 +76,6 @@ M.unmappings = {
   -- LazyVim terminal
   t = {
     "<esc><esc>",
-    "<C-h>",
-    "<C-l>",
-    "<C-k>",
-    "<C-j>",
     "<C-/>",
     "<C-_>",
   },
