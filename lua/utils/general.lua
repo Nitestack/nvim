@@ -17,16 +17,12 @@ end
 
 function M.version()
   local v = vim.version()
-  if v and not v.prerelease then
+
+  local is_not_nightly = not v.prerelease
+  if v then
     vim.notify(
-      ("Running on v%d.%d.%d (not nightly)"):format(v.major, v.minor, v.patch),
-      vim.log.levels.WARN,
-      { title = "Neovim" }
-    )
-  else
-    vim.notify(
-      ("Running on v%d.%d.%d (nightly)"):format(v.major, v.minor, v.patch),
-      vim.log.levels.INFO,
+      ("v%d.%d.%d (%s)"):format(v.major, v.minor, v.patch, is_not_nightly and "not nightly" or "nightly"),
+      is_not_nightly and vim.log.levels.WARN or vim.log.levels.INFO,
       { title = "Neovim" }
     )
   end
