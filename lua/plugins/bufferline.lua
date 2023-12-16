@@ -14,5 +14,6 @@ return {
     opts.options.right_trunc_marker = core.icons.ui.ArrowCircleRight
     opts.options.diagnostics_update_in_insert = false
     opts.options.show_close_icon = false
+    opts.options.always_show_bufferline = true
   end,
 }
