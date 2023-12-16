@@ -56,7 +56,7 @@ return {
           buffer = "(Buffer)",
           tmux = "(TMUX)",
           copilot = "(Copilot)",
-          treesitter = "(TreeSitter)",
+          treesitter = "(Treesitter)",
         },
         before = function(entry, vim_item)
           return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
