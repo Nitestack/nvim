@@ -58,7 +58,7 @@ return {
 
     -- Load extensions
     opts.load_extensions = opts.load_extensions or {}
-    for _, extension in ipairs(opts.load_extensions) do
+    for extension, _ in pairs(opts.load_extensions) do
       require("telescope").load_extension(extension)
     end
   end,

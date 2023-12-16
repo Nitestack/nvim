@@ -106,7 +106,7 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       load_extensions = {
-        "refactoring",
+        ["refactoring"] = true,
       },
     },
   },
