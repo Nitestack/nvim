@@ -61,6 +61,30 @@ M.auto_cmds = {
       end,
     },
   },
+  -- Close some filetypes with <q>
+  {
+    "FileType",
+    {
+      pattern = {
+        "toggleterm",
+      },
+      callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        core.map({
+          n = {
+            ["q"] = {
+              vim.cmd.close,
+              "Close",
+              opts = {
+                buffer = event.buf,
+                silent = true,
+              },
+            },
+          },
+        })
+      end,
+    },
+  },
 }
 
 M.auto_cmd_opts = {}
