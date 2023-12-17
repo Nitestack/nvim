@@ -58,8 +58,6 @@ M.mappings = {
 M.unmappings = {
   n = {
     -- Buffers
-    "<S-h>",
-    "<S-l>",
     "<leader>bb",
     "<leader>`",
     -- LazyVim terminal
