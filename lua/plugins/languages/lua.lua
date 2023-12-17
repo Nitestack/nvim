@@ -1,5 +1,10 @@
 ---@diagnostic disable: missing-fields
 return utils.lsp.load_language({
+  treesitter = {
+    "lua",
+    "luadoc",
+    "luap",
+  },
   lsp = {
     servers = {
       ---@type lspconfig.options.lua_ls
