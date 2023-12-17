@@ -18,7 +18,10 @@ M.options = {
   list = false,
 }
 
-M.globals = {}
+M.globals = {
+  mapleader = " ",
+  maplocalleader = " ",
+}
 
 M.disabled_providers = { "perl", "ruby", "node", "python3" }
 

@@ -17,6 +17,10 @@ _G.utils = {}
 _G.utils.general = require("utils.general")
 _G.utils.lsp = require("utils.lsp")
 
+_G.dd = function(...)
+  require("utils.debug").dump(...)
+end
+
 require("utils.loaders").load_plugins(require("core.lazy"))
 
 -- Show version info

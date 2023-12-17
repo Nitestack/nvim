@@ -23,6 +23,11 @@ return {
       loaded = core.icons.ui.PackageInstalled,
       not_loaded = core.icons.ui.PackageUninstalled,
     },
+    custom_keys = {
+      ["<localleader>d"] = function(plugin)
+        dd(plugin)
+      end,
+    },
   },
   checker = { enabled = true },
   change_detection = {
