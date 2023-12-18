@@ -1,1 +1,3 @@
-return { import = "lazyvim.plugins.extras.vscode" }
+return {
+  import = "lazyvim.plugins.extras.vscode",
+}
