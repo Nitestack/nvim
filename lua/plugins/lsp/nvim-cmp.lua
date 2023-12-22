@@ -27,6 +27,8 @@ return {
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      local cmp = require("cmp")
+
       -- Sources
       opts.sources = opts.sources or {}
       opts.sources = vim.list_extend(opts.sources, {
@@ -68,6 +70,12 @@ return {
       -- Experimental
       opts.experimental = opts.experimental or {}
       opts.experimental.ghost_text = false
+
+      if utils.general.is_win() then
+        opts.mapping = vim.tbl_extend("force", opts.mapping, {
+          ["<C-x>"] = cmp.mapping.complete(),
+        })
+      end
     end,
   },
   {
