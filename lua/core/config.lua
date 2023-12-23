@@ -24,6 +24,19 @@ M.lazyvim = {
     lazyvim = true,
     neovim = true,
   },
+  icons = {
+    diagnostics = vim.tbl_map(function(icon)
+      return icon .. " "
+    end, {
+      Error = core.icons.diagnostics.Error,
+      Warn = core.icons.diagnostics.Warning,
+      Info = core.icons.diagnostics.Information,
+      Hint = core.icons.diagnostics.Hint,
+    }),
+    kinds = vim.tbl_map(function(icon)
+      return icon .. " "
+    end, core.icons.kind),
+  },
 }
 
 M.ui = {
