@@ -93,6 +93,10 @@ return {
     end,
     integrations = {
       dashboard = true,
+      dropbar = {
+        enabled = true,
+        color_mode = false,
+      },
       flash = true,
       gitsigns = true,
       harpoon = true,
