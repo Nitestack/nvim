@@ -61,9 +61,7 @@ return {
     ---@diagnostic disable-next-line: inject-field Missing field in plugin type definition
     opts.options.custom_areas = {
       right = function()
-        local result = {
-          { text = core.icons.ui.BoldLineLeft, fg = C.text },
-        }
+        local result = {}
         local seve = vim.diagnostic.severity
         local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
         local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
