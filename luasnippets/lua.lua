@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-global
 return {
   s(
-    { trig = "lps", name = "Lazy plugin spec" },
+    { trig = "lps", name = "Neovim: Lazy plugin spec", desc = "Generates a Neovim Lazy plugin spec template" },
     fmt(
       [[
         ---@type LazyPluginSpec
@@ -16,7 +16,9 @@ return {
         }}
       ]],
       {
-        i(1, "PLUGIN_NAME"),
+        d(1, function()
+          return sn("", { i(1, vim.fn.fnamemodify(vim.fn.expand("%"), ":t:r")) })
+        end),
         c(2, {
           sn(nil, fmt([[dependencies = "{}",]], { i(1, "DEPENDENCY") })),
           sn(nil, fmt([[dependencies = {{ {} }},]], { i(1, "DEPENDENCIES") })),

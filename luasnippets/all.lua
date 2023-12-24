@@ -8,7 +8,7 @@ return {
         local function with_cmt(cmt)
           return string.format(vim.bo.commentstring, " " .. cmt)
         end
-        return s("", {
+        return sn(nil, {
           c(1, {
             t(with_cmt("TODO:")),
             t(with_cmt("FIXME: ")),
