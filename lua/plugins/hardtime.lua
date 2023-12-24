@@ -11,6 +11,12 @@ return {
       ["k"] = { "n" },
       ["l"] = { "n" },
     },
+    disabled_keys = {
+      ["<Up>"] = { "n", "i" },
+      ["<Down>"] = { "n", "i" },
+      ["<Left>"] = { "n", "i" },
+      ["<Right>"] = { "n", "i" },
+    },
     disable_mouse = vim.opt.mouse:get() == "",
   },
 }
