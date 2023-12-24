@@ -33,58 +33,22 @@ return {
           NeoTreeNormalNC = { bg = C.mantle },
           NeoTreeVertSplit = { bg = C.base },
 
-          DiagnosticVirtualTextError = {
-            bg = U.darken(C.red, 0.095, C.base),
-          },
-          DiagnosticVirtualTextWarn = {
-            bg = U.darken(C.yellow, 0.095, C.base),
-          },
-          DiagnosticVirtualTextInfo = {
-            bg = U.darken(C.sky, 0.095, C.base),
-          },
-          DiagnosticVirtualTextHint = {
-            bg = U.darken(C.teal, 0.095, C.base),
-          },
+          DiagnosticVirtualTextError = { bg = U.darken(C.red, 0.095, C.base) },
+          DiagnosticVirtualTextWarn = { bg = U.darken(C.yellow, 0.095, C.base) },
+          DiagnosticVirtualTextInfo = { bg = U.darken(C.sky, 0.095, C.base) },
+          DiagnosticVirtualTextHint = { bg = U.darken(C.teal, 0.095, C.base) },
 
-          TelescopeBorder = {
-            fg = C.mantle,
-            bg = C.mantle,
-          },
-          TelescopeNormal = {
-            bg = C.mantle,
-          },
-          TelescopePromptBorder = {
-            fg = C.surface0,
-            bg = C.surface0,
-          },
-          TelescopePromptNormal = {
-            bg = C.surface0,
-          },
-          TelescopePromptPrefix = {
-            bg = C.surface0,
-          },
-          TelescopePreviewTitle = {
-            fg = C.base,
-            bg = C.green,
-          },
-          TelescopePromptTitle = {
-            fg = C.base,
-            bg = C.red,
-          },
-          TelescopeResultsTitle = {
-            fg = C.mantle,
-            bg = C.lavender,
-          },
-          TelescopeSelection = {
-            fg = C.text,
-            bg = C.surface0,
-          },
+          TelescopeBorder = { fg = C.mantle, bg = C.mantle },
+          TelescopeNormal = { bg = C.mantle },
+          TelescopePromptBorder = { fg = C.surface0, bg = C.surface0 },
+          TelescopePromptNormal = { bg = C.surface0 },
+          TelescopePromptPrefix = { bg = C.surface0 },
+          TelescopePreviewTitle = { fg = C.base, bg = C.green },
+          TelescopePromptTitle = { fg = C.base, bg = C.red },
+          TelescopeResultsTitle = { fg = C.mantle, bg = C.lavender },
+          TelescopeSelection = { fg = C.text, bg = C.surface0 },
 
-          TreesitterContext = {
-            bg = C.none,
-            fg = C.text,
-            link = "",
-          },
+          TreesitterContext = { bg = C.none, fg = C.text, link = "" },
         }
         highlights = vim.tbl_deep_extend("force", highlights, float_highlights) --[[@as { [string]: CtpHighlight}]]
       end
@@ -101,14 +65,10 @@ return {
       gitsigns = true,
       harpoon = true,
       headlines = true,
-      indent_blankline = {
-        enabled = true,
-      },
+      indent_blankline = { enabled = true },
       markdown = true,
       mason = true,
-      mini = {
-        enabled = true,
-      },
+      mini = { enabled = true },
       neotree = true,
       noice = true,
       cmp = true,
@@ -126,9 +86,7 @@ return {
           warnings = { "undercurl" },
           information = { "undercurl" },
         },
-        inlay_hints = {
-          background = true,
-        },
+        inlay_hints = { background = true },
       },
       notify = true,
       treesitter_context = true,
