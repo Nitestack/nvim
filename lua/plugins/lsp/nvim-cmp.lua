@@ -23,7 +23,6 @@ return {
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
       "ray-x/cmp-treesitter",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -33,7 +32,6 @@ return {
       opts.sources = opts.sources or {}
       opts.sources = vim.list_extend(opts.sources, {
         { name = "nvim_lua" },
-        { name = "nvim_lsp_signature_help" },
         { name = "calc" },
         { name = "emoji" },
         { name = "treesitter" },
