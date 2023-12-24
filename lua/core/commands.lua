@@ -78,7 +78,17 @@ M.auto_cmds = {
 
 M.auto_cmd_opts = {}
 
-M.user_cmds = {}
+M.user_cmds = {
+  {
+    "ClearRegisters",
+    function()
+      local regs = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"
+      for r in regs:gmatch(".") do
+        vim.fn.setreg(r, {})
+      end
+    end,
+  },
+}
 
 M.user_cmd_opts = {}
 
