@@ -1,3 +1,6 @@
+--------------------------------------------------------------------------------
+--  LOADER FUNCTIONS
+--------------------------------------------------------------------------------
 local M = {}
 
 ---@param config { options?: vim.opt, config?: fun(), mappings?: Mappings, mapping_opts?: KeymapOpts }

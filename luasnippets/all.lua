@@ -30,14 +30,8 @@ return {
         {4}
           ]],
       {
-        f(function()
-          local comment = string.format(vim.bo.commentstring:gsub(" ", "") or "#%s", "-")
-          local col = vim.bo.textwidth ~= 0 and vim.bo.textwidth or 80
-          return comment .. string.rep("-", col - #comment)
-        end),
-        f(function()
-          return vim.bo.commentstring:gsub("%%s", "")
-        end),
+        f(require("utils.snippet").header_lines),
+        f(require("utils.snippet").header_title),
         i(1, "HEADER"),
         i(0),
       }

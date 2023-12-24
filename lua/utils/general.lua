@@ -1,3 +1,6 @@
+--------------------------------------------------------------------------------
+--  GENERAL UTILS
+--------------------------------------------------------------------------------
 local M = {}
 
 ---@param plugins string[]
@@ -13,19 +16,6 @@ function M.disabled_plugins(plugins)
   end
 
   return spec
-end
-
-function M.version()
-  local v = vim.version()
-
-  local is_not_nightly = not v.prerelease
-  if v then
-    vim.notify(
-      ("v%d.%d.%d (%s)"):format(v.major, v.minor, v.patch, is_not_nightly and "not nightly" or "nightly"),
-      is_not_nightly and vim.log.levels.WARN or vim.log.levels.INFO,
-      { title = "Neovim" }
-    )
-  end
 end
 
 function M.is_win()

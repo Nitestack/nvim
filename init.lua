@@ -1,4 +1,6 @@
--- VSCode extension support (LazyVim handles it)
+--------------------------------------------------------------------------------
+--  NEOVIM CONFIGURATION
+--------------------------------------------------------------------------------
 if vim.env.VSCODE then
   vim.g.vscode = true
 end
@@ -7,6 +9,9 @@ if vim.loader then
   vim.loader.enable()
 end
 
+--------------------------------------------------------------------------------
+--  Globals
+--------------------------------------------------------------------------------
 _G.core = {}
 
 _G.core.ft_plugin = require("utils.loaders").load_ftplugin
@@ -26,21 +31,7 @@ _G.utils = {}
 _G.utils.general = require("utils.general")
 _G.utils.lsp = require("utils.lsp")
 
-_G.dd = function(...)
-  require("utils.debug").dump(...)
-end
-
+--------------------------------------------------------------------------------
+--  Plugins
+--------------------------------------------------------------------------------
 require("utils.loaders").load_plugins(require("core.lazy"))
-
--- Show version info
-core.auto_cmds({
-  {
-    "User",
-    {
-      pattern = "VeryLazy",
-      callback = function()
-        utils.general.version()
-      end,
-    },
-  },
-})
