@@ -1,5 +1,20 @@
 local M = {}
 
+---@param config { options?: vim.opt, config?: fun(), mappings?: Mappings, mapping_opts?: KeymapOpts }
+function M.load_ftplugin(config)
+  if config.options then
+    for k, v in pairs(config.options) do
+      vim.opt[k] = v
+    end
+  end
+  if config.config then
+    config.config()
+  end
+  if config.mappings then
+    require("utils.mappings").map(config.mappings, config.mapping_opts)
+  end
+end
+
 ---@param opts LazyConfig
 function M.load_plugins(opts)
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

@@ -50,17 +50,6 @@ M.auto_cmds = {
       end,
     },
   },
-  -- Fix conceallevel for json & help files
-  {
-    "FileType",
-    {
-      pattern = { "json", "jsonc" },
-      callback = function()
-        vim.wo.spell = false
-        vim.wo.conceallevel = 0
-      end,
-    },
-  },
   -- Close some filetypes with <q>
   {
     "FileType",

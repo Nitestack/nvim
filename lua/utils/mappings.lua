@@ -63,10 +63,58 @@ local M = {}
 ---@field callback? function Lua function to call when the mapping is executed
 ---@field buffer? integer|boolean|nil Specify the buffer that the keymap will be effective in. If 0 or true, the current buffer will be used
 
+---Loads a single mapping (with `vim.keymap.set`)
+---@param mode string|string[]
+---@param lhs string
+---@param mappings_spec KeymapConfig
+function M.single_map(mode, lhs, mappings_spec)
+  local opts = vim.tbl_deep_extend("force", { mode = mode, desc = mappings_spec[2] }, mappings_spec.opts or {})
+  vim.keymap.set(mode, lhs, mappings_spec[1], opts)
+end
+
+---Loads a single mapping for `lazy.nvim` plugin spec
+---@param mode string|string[]
+---@param lhs string
+---@param mappings_spec LazyKeymapConfig
+function M.single_lazy_map(mode, lhs, mappings_spec)
+  local opts = vim.tbl_deep_extend("force", { mode = mode, desc = mappings_spec[2] }, mappings_spec.opts or {})
+  ---@type LazyKeysSpec[]
+  return {
+    vim.tbl_extend("force", opts, {
+      lhs,
+      mappings_spec[1],
+    }),
+  }
+end
+
+---Loads mappings (with `vim.keymap.set`)
+---@param mappings Mappings
+---@param mapping_opts? KeymapOpts
+function M.map(mappings, mapping_opts)
+  for mode, mode_mappings in pairs(mappings) do
+    local default_opts = vim.tbl_deep_extend("force", { mode = mode }, mapping_opts or {})
+
+    for mapping, mapping_info in pairs(mode_mappings) do
+      local opts = vim.tbl_deep_extend("force", default_opts, mapping_info.opts or {})
+
+      mapping_info.opts, opts.mode = nil, nil
+      opts.desc = mapping_info[2]
+
+      if type(mapping) == "string" then
+        vim.keymap.set(mode, mapping, mapping_info[1], opts)
+      else
+        for _, keymap in ipairs(mapping) do
+          vim.keymap.set(mode, keymap, mapping_info[1], opts)
+        end
+      end
+    end
+  end
+end
+
 ---Loads mappings for `lazy.nvim` plugin spec
 ---@param mappings LazyMappings
 ---@param mapping_opts? KeymapOpts
----@return LazyKeysSpec
+---@return LazyKeysSpec[]
 function M.lazy_map(mappings, mapping_opts)
   local lazy_mappings = {}
 
@@ -102,30 +150,6 @@ function M.lazy_map(mappings, mapping_opts)
   end
 
   return lazy_mappings
-end
-
----Loads mappings (with `vim.keymap.set`)
----@param mappings Mappings
----@param mapping_opts? KeymapOpts
-function M.map(mappings, mapping_opts)
-  for mode, mode_mappings in pairs(mappings) do
-    local default_opts = vim.tbl_deep_extend("force", { mode = mode }, mapping_opts or {})
-
-    for mapping, mapping_info in pairs(mode_mappings) do
-      local opts = vim.tbl_deep_extend("force", default_opts, mapping_info.opts or {})
-
-      mapping_info.opts, opts.mode = nil, nil
-      opts.desc = mapping_info[2]
-
-      if type(mapping) == "string" then
-        vim.keymap.set(mode, mapping, mapping_info[1], opts)
-      else
-        for _, keymap in ipairs(mapping) do
-          vim.keymap.set(mode, keymap, mapping_info[1], opts)
-        end
-      end
-    end
-  end
 end
 
 ---Disables mappings (with `vim.keymap.del`)
