@@ -1,4 +1,4 @@
-std = "neovim"
+std = "neovim+luasnip"
 
 [rules]
 global_usage = "allow"
