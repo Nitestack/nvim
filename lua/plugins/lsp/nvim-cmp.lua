@@ -4,16 +4,6 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       {
-        "L3MON4D3/LuaSnip",
-        keys = core.lazy_map({
-          [{ "i", "s" }] = {
-            [{ "<Tab>", "<S-Tab>" }] = {
-              false,
-            },
-          },
-        }),
-      },
-      {
         "roobert/tailwindcss-colorizer-cmp.nvim",
         opts = {},
       },
