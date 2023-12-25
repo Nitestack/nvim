@@ -1,7 +1,6 @@
 return utils.lsp.load_language({
   treesitter = {
     "json",
-    "json5",
     "jsonc",
   },
   mason = {
@@ -14,6 +13,7 @@ return utils.lsp.load_language({
   linter = {
     linters_by_ft = {
       ["json"] = { "jsonlint" },
+      ["jsonc"] = { "jsonlint" },
     },
   },
   formatter = {
