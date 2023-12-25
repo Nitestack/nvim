@@ -38,5 +38,4 @@ return utils.lsp.load_language({
       ["lua"] = { "selene" },
     },
   },
-  plugins = {},
 })

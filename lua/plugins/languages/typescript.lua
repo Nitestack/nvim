@@ -1,6 +1,7 @@
 return utils.lsp.load_language({
   lsp = {
     servers = {
+      -- Disable tsserver because typescript-tools.nvim is used
       tsserver = {
         autostart = false,
         mason = false,
