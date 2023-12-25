@@ -39,11 +39,6 @@ return utils.lsp.load_language({
       ["css"] = { "prettierd" },
       ["scss"] = { "prettierd" },
       ["html"] = { "prettierd" },
-      ["json"] = { "prettierd" },
-      ["jsonc"] = { "prettierd" },
-      ["yaml"] = { "prettierd" },
-      ["markdown"] = { "prettierd" },
-      ["markdown.mdx"] = { "prettierd" },
     },
   },
   linter = {

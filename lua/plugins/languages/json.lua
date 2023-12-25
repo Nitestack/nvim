@@ -19,6 +19,7 @@ return utils.lsp.load_language({
   formatter = {
     formatters_by_ft = {
       ["json"] = { "prettierd" },
+      ["jsonc"] = { "prettierd" },
     },
   },
 })
