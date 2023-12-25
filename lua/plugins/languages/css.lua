@@ -29,4 +29,7 @@ return utils.lsp.load_language({
       ["sass"] = { "prettierd" },
     },
   },
+  plugins = {
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+  },
 })

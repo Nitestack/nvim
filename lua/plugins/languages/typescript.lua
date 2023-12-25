@@ -48,7 +48,6 @@ return utils.lsp.load_language({
   },
   plugins = {
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.tailwind" },
     {
       "pmizio/typescript-tools.nvim",
       event = {
