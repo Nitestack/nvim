@@ -17,6 +17,8 @@
 ---@class UserConfigPlugins
 ---@field mason string[]
 ---@field treesitter string[]
+---@field linting LanguageLinterConfig
+---@field formatting LanguageFormatterConfig
 
 ---@type UserConfig
 ---@diagnostic disable-next-line: missing-fields
@@ -70,10 +72,14 @@ M.ui = {
 --  Plugins
 --------------------------------------------------------------------------------
 M.plugins = {
-  mason = {},
-  treesitter = {
-    "css",
+  mason = { "codespell" },
+  treesitter = { "css" },
+  linting = {
+    linters_by_ft = {
+      ["*"] = { "codespell" },
+    },
   },
+  formatting = {},
 }
 
 M.disabled_plugins = {

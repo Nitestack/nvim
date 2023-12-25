@@ -11,4 +11,5 @@ return {
       },
     },
   }),
+  opts = core.config.plugins.linting,
 }
