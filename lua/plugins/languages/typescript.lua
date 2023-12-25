@@ -15,6 +15,7 @@ return utils.lsp.load_language({
   },
   treesitter = {
     "javascript",
+    "typescript",
     "prisma",
     "tsx",
   },
