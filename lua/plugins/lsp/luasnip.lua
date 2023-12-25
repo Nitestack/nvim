@@ -11,6 +11,10 @@ return {
               return vim.fn["codeium#Accept"]()
             end,
             "Codeium: Accept suggestion",
+            opts = {
+              silent = true,
+              expr = true,
+            },
           },
         },
       }),
