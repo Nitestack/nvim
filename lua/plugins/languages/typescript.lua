@@ -36,7 +36,6 @@ return utils.lsp.load_language({
       ["javascriptreact"] = { "prettierd" },
       ["typescript"] = { "prettierd" },
       ["typescriptreact"] = { "prettierd" },
-      ["html"] = { "prettierd" },
     },
   },
   linter = {
