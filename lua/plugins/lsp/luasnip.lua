@@ -2,7 +2,19 @@ return {
   "L3MON4D3/LuaSnip",
   event = "InsertEnter",
   dependencies = {
-    "Exafunction/codeium.vim",
+    {
+      "Exafunction/codeium.vim",
+      keys = core.lazy_map({
+        i = {
+          ["<C-a>"] = {
+            function()
+              return vim.fn["codeium#Accept"]()
+            end,
+            "Codeium: Accept suggestion",
+          },
+        },
+      }),
+    },
   },
   keys = core.lazy_map({
     i = {
@@ -14,6 +26,7 @@ return {
             return vim.fn["codeium#Accept"]()
           end
         end,
+        "Super-tab: expand/jump or accept Codeium suggestion",
         opts = {
           silent = true,
           expr = true,
