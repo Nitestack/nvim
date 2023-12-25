@@ -36,8 +36,6 @@ return utils.lsp.load_language({
       ["javascriptreact"] = { "prettierd" },
       ["typescript"] = { "prettierd" },
       ["typescriptreact"] = { "prettierd" },
-      ["css"] = { "prettierd" },
-      ["scss"] = { "prettierd" },
       ["html"] = { "prettierd" },
     },
   },
