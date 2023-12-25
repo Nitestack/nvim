@@ -98,6 +98,14 @@ M.user_cmds = {
       end
     end,
   },
+  {
+    "UpdateAll",
+    function()
+      vim.cmd("TSUpdateSync")
+      vim.cmd("MasonUpdate")
+      vim.cmd("Lazy sync")
+    end,
+  },
 }
 
 M.user_cmd_opts = {}
