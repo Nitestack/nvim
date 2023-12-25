@@ -73,7 +73,7 @@ M.ui = {
 --------------------------------------------------------------------------------
 M.plugins = {
   mason = { "codespell" },
-  treesitter = { "css" },
+  treesitter = {},
   linting = {
     linters_by_ft = {
       ["*"] = { "codespell" },
