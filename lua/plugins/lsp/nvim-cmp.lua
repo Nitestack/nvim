@@ -18,6 +18,8 @@ return {
     opts = function(_, opts)
       local cmp = require("cmp")
 
+      local min_menu_width, max_menu_width = 25, math.min(50, math.floor(vim.o.columns * 0.5))
+
       -- Sources
       opts.sources = opts.sources or {}
       opts.sources = vim.list_extend(opts.sources, {
@@ -36,6 +38,8 @@ return {
       }
       opts.formatting.format = require("lspkind").cmp_format({
         mode = "symbol",
+        maxwidth = max_menu_width,
+        ellipsis_char = core.icons.ui.Ellipsis,
         preset = "codicons",
         menu = {
           nvim_lsp = "(LSP)",
@@ -51,6 +55,10 @@ return {
           treesitter = "(Treesitter)",
         },
         before = function(entry, vim_item)
+          local label, length = vim_item.abbr, vim.api.nvim_strwidth(vim_item.abbr)
+          if length < min_menu_width then
+            vim_item.abbr = label .. string.rep(" ", min_menu_width - length)
+          end
           return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
       })
