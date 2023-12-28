@@ -1,4 +1,8 @@
-# Neovim Configuration
+# Neovim Configuration (ARCHIVED)
+
+## New config is in [`Nitestack/dotfiles`](https://github.com/Nitestack/dotfiles) managed with [`chezmoi`](https://chezmoi.io)!!!
+
+---
 
 My personal Neovim configuration powered by LazyVim
 
